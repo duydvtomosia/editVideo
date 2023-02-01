@@ -1,0 +1,20 @@
+PODS:
+  - CRRulerControl (1.0.0)
+  - FSPagerView (0.8.3)
+
+DEPENDENCIES:
+  - CRRulerControl
+  - FSPagerView (~> 0.8)
+
+SPEC REPOS:
+  trunk:
+    - CRRulerControl
+    - FSPagerView
+
+SPEC CHECKSUMS:
+  CRRulerControl: b0517d3fe616dc63ad3daedfa37d056c959d877a
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+
+PODFILE CHECKSUM: 7d56cb87dce618a06abbd78a26891df5566e85cb
+
+COCOAPODS: 1.11.3
