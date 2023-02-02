@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="adjustTypeCell" id="3vE-Dc-gMQ" customClass="AdjustTypeCell" customModule="EditVideo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mro-YS-AkB">
+                    <rect key="frame" x="8" y="0.0" width="64" height="64"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zmU-1W-x4D">
+                    <rect key="frame" x="8" y="0.0" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="zmU-1W-x4D" secondAttribute="height" multiplier="1:1" id="U6y-CB-ffe"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avm-fX-WE7">
+                    <rect key="frame" x="39" y="68" width="2" height="2"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="avm-fX-WE7" secondAttribute="height" multiplier="1:1" id="Aye-KN-3IL"/>
+                        <constraint firstAttribute="height" constant="2" id="OHJ-f9-43W"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Jb0-Wa-PsY"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="zmU-1W-x4D" firstAttribute="trailing" secondItem="Jb0-Wa-PsY" secondAttribute="trailing" constant="-8" id="95J-Zc-Lxj"/>
+                <constraint firstItem="mro-YS-AkB" firstAttribute="leading" secondItem="Jb0-Wa-PsY" secondAttribute="leading" constant="8" id="X2J-yX-0zw"/>
+                <constraint firstItem="Jb0-Wa-PsY" firstAttribute="trailing" secondItem="mro-YS-AkB" secondAttribute="trailing" constant="8" id="ehx-7N-Mwg"/>
+                <constraint firstItem="zmU-1W-x4D" firstAttribute="top" secondItem="Jb0-Wa-PsY" secondAttribute="top" id="hYg-NP-OsL"/>
+                <constraint firstItem="avm-fX-WE7" firstAttribute="top" secondItem="zmU-1W-x4D" secondAttribute="bottom" constant="4" id="lNN-RF-cRn"/>
+                <constraint firstItem="mro-YS-AkB" firstAttribute="bottom" secondItem="avm-fX-WE7" secondAttribute="top" constant="-4" id="mUv-Rt-jea"/>
+                <constraint firstItem="zmU-1W-x4D" firstAttribute="leading" secondItem="Jb0-Wa-PsY" secondAttribute="leading" constant="8" id="q5c-9Y-lks"/>
+                <constraint firstItem="avm-fX-WE7" firstAttribute="centerX" secondItem="3vE-Dc-gMQ" secondAttribute="centerX" id="wih-Qa-nZp"/>
+                <constraint firstItem="mro-YS-AkB" firstAttribute="top" secondItem="Jb0-Wa-PsY" secondAttribute="top" id="xmi-7g-1T4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentImageView" destination="zmU-1W-x4D" id="icT-Zs-dby"/>
+                <outlet property="isEditedView" destination="avm-fX-WE7" id="Xdh-Qh-8Ca"/>
+            </connections>
+            <point key="canvasLocation" x="-10.144927536231885" y="70.923913043478265"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

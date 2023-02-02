@@ -21,6 +21,10 @@
 		D46B464529890845008713C6 /* EditVideoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B464429890845008713C6 /* EditVideoUITestsLaunchTests.swift */; };
 		D46B465C298A520B008713C6 /* FilterTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46B465B298A520B008713C6 /* FilterTypeCell.xib */; };
 		D46B465E298A5217008713C6 /* FilterTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B465D298A5217008713C6 /* FilterTypeCell.swift */; };
+		D46B4660298B5B29008713C6 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B465F298B5B28008713C6 /* UIImage+Extension.swift */; };
+		D46B4662298B93E4008713C6 /* AdjustImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B4661298B93E3008713C6 /* AdjustImage.swift */; };
+		D46B4665298BA181008713C6 /* AdjustTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46B4664298BA181008713C6 /* AdjustTypeCell.xib */; };
+		D46B4667298BA29F008713C6 /* AdjustTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B4666298BA29F008713C6 /* AdjustTypeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,10 @@
 		D46B464429890845008713C6 /* EditVideoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D46B465B298A520B008713C6 /* FilterTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTypeCell.xib; sourceTree = "<group>"; };
 		D46B465D298A5217008713C6 /* FilterTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeCell.swift; sourceTree = "<group>"; };
+		D46B465F298B5B28008713C6 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		D46B4661298B93E3008713C6 /* AdjustImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustImage.swift; sourceTree = "<group>"; };
+		D46B4664298BA181008713C6 /* AdjustTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdjustTypeCell.xib; sourceTree = "<group>"; };
+		D46B4666298BA29F008713C6 /* AdjustTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustTypeCell.swift; sourceTree = "<group>"; };
 		F59D30B159A91FABC3385368 /* Pods_EditVideo_EditVideoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EditVideo_EditVideoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -143,6 +151,7 @@
 		D46B462029890842008713C6 /* EditVideo */ = {
 			isa = PBXGroup;
 			children = (
+				D46B4663298BA13E008713C6 /* AdjustTypeCell */,
 				D46B465A298A51F2008713C6 /* FilterTypeCell */,
 				D46B462129890842008713C6 /* AppDelegate.swift */,
 				D46B462329890842008713C6 /* SceneDelegate.swift */,
@@ -151,6 +160,8 @@
 				D46B462A29890845008713C6 /* Assets.xcassets */,
 				D46B462C29890845008713C6 /* LaunchScreen.storyboard */,
 				D46B462F29890845008713C6 /* Info.plist */,
+				D46B465F298B5B28008713C6 /* UIImage+Extension.swift */,
+				D46B4661298B93E3008713C6 /* AdjustImage.swift */,
 			);
 			path = EditVideo;
 			sourceTree = "<group>";
@@ -179,6 +190,15 @@
 				D46B465D298A5217008713C6 /* FilterTypeCell.swift */,
 			);
 			path = FilterTypeCell;
+			sourceTree = "<group>";
+		};
+		D46B4663298BA13E008713C6 /* AdjustTypeCell */ = {
+			isa = PBXGroup;
+			children = (
+				D46B4664298BA181008713C6 /* AdjustTypeCell.xib */,
+				D46B4666298BA29F008713C6 /* AdjustTypeCell.swift */,
+			);
+			path = AdjustTypeCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D46B4665298BA181008713C6 /* AdjustTypeCell.xib in Resources */,
 				D46B462E29890845008713C6 /* LaunchScreen.storyboard in Resources */,
 				D46B462B29890845008713C6 /* Assets.xcassets in Resources */,
 				D46B462929890842008713C6 /* Main.storyboard in Resources */,
@@ -423,6 +444,9 @@
 			files = (
 				D46B462629890842008713C6 /* ViewController.swift in Sources */,
 				D46B462229890842008713C6 /* AppDelegate.swift in Sources */,
+				D46B4662298B93E4008713C6 /* AdjustImage.swift in Sources */,
+				D46B4667298BA29F008713C6 /* AdjustTypeCell.swift in Sources */,
+				D46B4660298B5B29008713C6 /* UIImage+Extension.swift in Sources */,
 				D46B462429890842008713C6 /* SceneDelegate.swift in Sources */,
 				D46B465E298A5217008713C6 /* FilterTypeCell.swift in Sources */,
 			);
