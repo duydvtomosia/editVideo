@@ -1,20 +1,32 @@
 PODS:
   - CRRulerControl (1.0.0)
   - FSPagerView (0.8.3)
+  - PryntTrimmerView (4.0.2)
+  - SteviaLayout (4.7.3)
+  - YPImagePicker (4.5.0):
+    - PryntTrimmerView (~> 4.0.2)
+    - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
   - CRRulerControl
   - FSPagerView (~> 0.8)
+  - YPImagePicker
 
 SPEC REPOS:
   trunk:
     - CRRulerControl
     - FSPagerView
+    - PryntTrimmerView
+    - SteviaLayout
+    - YPImagePicker
 
 SPEC CHECKSUMS:
   CRRulerControl: b0517d3fe616dc63ad3daedfa37d056c959d877a
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 7d56cb87dce618a06abbd78a26891df5566e85cb
+PODFILE CHECKSUM: 94314d034c3220cd05eba632f67054bc3601eb53
 
 COCOAPODS: 1.11.3

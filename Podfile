@@ -8,6 +8,7 @@ target 'EditVideo' do
   # Pods for EditVideo
   pod 'FSPagerView', '~> 0.8'
   pod "CRRulerControl"
+  pod 'YPImagePicker'
 
   target 'EditVideoTests' do
     inherit! :search_paths
