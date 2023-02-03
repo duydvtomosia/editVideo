@@ -9,14 +9,8 @@ target 'EditVideo' do
   pod 'FSPagerView', '~> 0.8'
   pod "CRRulerControl"
   pod 'YPImagePicker'
-
-  target 'EditVideoTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'EditVideoUITests' do
-    # Pods for testing
-  end
-
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
+  pod 'MetalPetal/Swift'
+  
 end

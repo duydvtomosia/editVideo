@@ -1,7 +1,16 @@
 PODS:
   - CRRulerControl (1.0.0)
   - FSPagerView (0.8.3)
+  - MetalPetal/Core (1.9.0)
+  - MetalPetal/Swift (1.9.0):
+    - MetalPetal/Core
   - PryntTrimmerView (4.0.2)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
   - SteviaLayout (4.7.3)
   - YPImagePicker (4.5.0):
     - PryntTrimmerView (~> 4.0.2)
@@ -10,23 +19,34 @@ PODS:
 DEPENDENCIES:
   - CRRulerControl
   - FSPagerView (~> 0.8)
+  - MetalPetal/Swift
+  - RxCocoa (= 6.5.0)
+  - RxSwift (= 6.5.0)
   - YPImagePicker
 
 SPEC REPOS:
   trunk:
     - CRRulerControl
     - FSPagerView
+    - MetalPetal
     - PryntTrimmerView
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SteviaLayout
     - YPImagePicker
 
 SPEC CHECKSUMS:
   CRRulerControl: b0517d3fe616dc63ad3daedfa37d056c959d877a
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+  MetalPetal: 07d93f6b0e8bcdd4da238dbb2b769b5405f183c0
   PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 94314d034c3220cd05eba632f67054bc3601eb53
+PODFILE CHECKSUM: 9b9f64ee14d88c7fba557265c6d038d31182f829
 
 COCOAPODS: 1.11.3
