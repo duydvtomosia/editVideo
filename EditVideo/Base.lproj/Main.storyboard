@@ -75,11 +75,23 @@
                                                     <constraint firstAttribute="height" constant="88" id="yHY-k3-Z41"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mS6-7z-CWR" customClass="CRRulerControl">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mS6-7z-CWR">
                                                 <rect key="frame" x="0.0" y="88" width="428" height="60"/>
+                                                <subviews>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-100" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="dbJ-Lq-J6A">
+                                                        <rect key="frame" x="18" y="15" width="392" height="30"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="5yd-c8-SD6"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="AhS-Qs-6G6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dbJ-Lq-J6A" secondAttribute="trailing" constant="20" id="WS9-cd-BaQ"/>
+                                                    <constraint firstItem="dbJ-Lq-J6A" firstAttribute="leading" secondItem="mS6-7z-CWR" secondAttribute="leading" constant="20" id="Yxv-YN-Pgr"/>
+                                                    <constraint firstItem="dbJ-Lq-J6A" firstAttribute="top" secondItem="mS6-7z-CWR" secondAttribute="top" constant="15" id="a8I-eY-Taz"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dbJ-Lq-J6A" secondAttribute="bottom" constant="16" id="eH0-ep-Vbd"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -242,6 +254,7 @@
                         <outlet property="filterPagerView" destination="Rmj-ru-q8L" id="Nu8-cK-Hch"/>
                         <outlet property="imageView" destination="kWb-jy-FBT" id="2fa-pg-09o"/>
                         <outlet property="rulerControlView" destination="mS6-7z-CWR" id="FEo-rx-JoY"/>
+                        <outlet property="slider" destination="dbJ-Lq-J6A" id="Ny7-Ex-Qj7"/>
                         <outlet property="titleTextField" destination="18W-Zb-f2g" id="epq-4G-j7g"/>
                     </connections>
                 </viewController>

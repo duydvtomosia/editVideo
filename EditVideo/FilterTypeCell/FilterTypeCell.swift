@@ -9,7 +9,7 @@ import UIKit
 import FSPagerView
 
 class FilterTypeCell: FSPagerViewCell {
-    @IBOutlet var contentImageView: UIImageView!
+    @IBOutlet var filterName: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

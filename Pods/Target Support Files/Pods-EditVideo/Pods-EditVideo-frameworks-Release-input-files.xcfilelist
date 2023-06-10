@@ -1,10 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-EditVideo/Pods-EditVideo-frameworks.sh
-${BUILT_PRODUCTS_DIR}/CRRulerControl/CRRulerControl.framework
 ${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework
 ${BUILT_PRODUCTS_DIR}/MetalPetal/MetalPetal.framework
-${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
-${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework
-${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework
