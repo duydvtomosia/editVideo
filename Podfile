@@ -7,8 +7,6 @@ target 'EditVideo' do
 
   # Pods for EditVideo
   pod 'FSPagerView', '~> 0.8'
-  pod "CRRulerControl"
-  pod 'YPImagePicker'
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
   pod 'MetalPetal/Swift'

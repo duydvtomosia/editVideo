@@ -21,9 +21,5 @@
 			</array>
 		</dict>
 	</dict>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>please allow us to use Library</string>
-    <key>NSCameraUsageDescription</key>
-    <string>please allow us to use Camera</string>
 </dict>
 </plist>

@@ -6,17 +6,17 @@
 //
 
 import AVFoundation
-import CRRulerControl
 import FSPagerView
+import Photos
+import PhotosUI
 import RxCocoa
 import RxSwift
 import UIKit
-import YPImagePicker
 
 class ViewController: UIViewController {
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var rulerControlView: CRRulerControl!
+    @IBOutlet var rulerControlView: UIView!
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var adjustImageView: UIImageView!
     @IBOutlet var filterImageView: UIImageView!
@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet var adjustButton: UIButton!
     @IBOutlet var filterButton: UIButton!
     @IBOutlet var doneButton: UIButton!
+    @IBOutlet var slider: UISlider!
 
     var editType: EditType = EditType.adjust {
         didSet {
@@ -50,60 +51,49 @@ class ViewController: UIViewController {
         didSet {
             let filteredImage = EditImage
                 .shared
-                .listFilteredImage
-                .first { $0.filter == self.currentFilter }
-                .map { $0.image }
+                .adjustImage(EditImage.shared.inputImage, type: currentFilter)
             let attribute = listFilter
                 .first(where: { self.currentFilter == $0 })
                 .map { $0.name }
-
+            EditImage.shared.filter = currentFilter
             attributeNameTextField.text = attribute
-            imageView.image = filteredImage
+            imageView.image = filteredImage.toUIImage()
         }
     }
 
     var currentAdjust = AdjustType.exposure {
         didSet {
             attributeNameTextField.text = currentAdjust.name
-            rulerControlView.value = CGFloat(EditImage.shared.getInformation(of: currentAdjust) * 100).rounded()
+            slider.value = Float(EditImage.shared.getInformation(of: currentAdjust) * 100).rounded()
         }
     }
 
     let imageSize = CGSize(width: 80.0, height: 80.0)
-    private let numberOfRuler = PublishSubject<Float>()
+    private let sliderValue = PublishSubject<Float>()
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupRulerControl()
         setupPagerView()
         attributeNameTextField.text = listAdjust.first?.name
 
-        rulerControlView
-            .scrollView
-            .rx
-            .didScroll
-            .asDriver()
-            .map { _ in
-                Float(self.rulerControlView.value / 100).rounded(toPlaces: 1)
-            }
+        sliderValue
+            .asObservable()
+            .map { Float($0 / 100).rounded(toPlaces: 1) }
             .distinctUntilChanged()
-            .debounce(.milliseconds(100))
-            .drive(onNext: { [weak self] value in
+            .debounce(.milliseconds(100), scheduler: MainScheduler())
+            .subscribe { [weak self] value in
                 guard let self = self else { return }
-                DispatchQueue.global().async {
-                    EditImage.shared.adjust(type: self.currentAdjust,
-                                            input: value,
-                                            filter: self.currentFilter) { image in
-                        DispatchQueue.main.async {
-                            self.filterPagerView.reloadData()
-                            self.adjustPagerView.reloadData()
-                            self.imageView.image = image
-                        }
+                EditImage.shared.adjust(type: self.currentAdjust,
+                                        input: value) { image in
+                    DispatchQueue.main.async {
+                        self.filterPagerView.reloadData()
+                        self.adjustPagerView.reloadData()
+                        self.imageView.image = image
                     }
                 }
-            })
+            }
             .disposed(by: disposeBag)
 
         addPhotoButton
@@ -137,17 +127,10 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
 
         _ = Observable
-            .from(listFilter.map { $0.name })
+            .just(listFilter.map { $0.name })
             .bind(to: filterPagerView.rx.items) { pagerView, row, _ in
                 let cell = pagerView.dequeueReusableCell(aClass: FilterTypeCell.self, index: row)
-
-                if !EditImage.shared.listFilteredImage.isEmpty {
-                    cell.contentImageView.image = EditImage
-                        .shared
-                        .listFilteredImage[row]
-                        .image
-                        .resize(to: CGSize(width: 128, height: 128))
-                }
+                cell.filterName.text = self.listFilter[row].name
                 return cell
             }
             .disposed(by: disposeBag)
@@ -201,7 +184,7 @@ class ViewController: UIViewController {
                 if self.editType == .adjust {
                     self.editType = .filter
                     let attribute = self.listFilter.first(where: { filterType in
-                        self.currentFilter.identifier == filterType.identifier
+                        self.currentFilter.name == filterType.name
                     }).map({ filter in
                         filter.name
                     })
@@ -217,51 +200,27 @@ class ViewController: UIViewController {
                 guard let self = self else { return }
                 ProgressHUD.show()
                 guard let videoUrl = self.videoUrl else {
-                    EditImage
-                        .shared
-                        .applyAdjustAndEffectToImage(filter: self.currentFilter) { image in
-                            UIImageWriteToSavedPhotosAlbum(image,
-                                                           self,
-                                                           #selector(self.saveImage(_: didFinishSavingWithError: contextInfo:)),
-                                                           nil)
-                        }
                     return
                 }
-                EditImage
-                    .shared
-                    .applyAdjustAndEffectToVideo(videoUrl, filter: self.currentFilter) { isSaved, error in
+                EditImage.shared.exportVideo(videoUrl) { isSaved, error in
+                    DispatchQueue.main.async {
                         ProgressHUD.dismiss()
                         guard let error = error,
-                              isSaved else {
+                              !isSaved else {
                             self.showAlert(title: "Saved!", message: "Your video has been saved to your Photos")
                             return
                         }
                         self.showAlert(title: "Error!", message: error.localizedDescription)
                     }
+                }
             })
             .disposed(by: disposeBag)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if !EditImage.shared.isImageAvailable {
-            showImagePickerView()
-        }
-    }
-
-    func setupRulerControl() {
-        rulerControlView.isHidden = editType == .filter
-        rulerControlView.rangeFrom = -100
-        rulerControlView.rangeLength = 200
-        rulerControlView.setFrequency(50, for: .major)
-        rulerControlView.setFrequency(10, for: .minor)
-        rulerControlView.spacingBetweenMarks = 20
     }
 
     func setupPagerView() {
         filterPagerView.registerCell(aClass: FilterTypeCell.self)
         filterPagerView.transformer = FSPagerViewTransformer(type: .linear)
-        filterPagerView.itemSize = imageSize
+        filterPagerView.itemSize = CGSize(width: 128, height: 64)
 
         adjustPagerView.registerCell(aClass: AdjustTypeCell.self)
         adjustPagerView.transformer = FSPagerViewTransformer(type: .linear)
@@ -269,32 +228,13 @@ class ViewController: UIViewController {
     }
 
     func showImagePickerView() {
-        var config = YPImagePickerConfiguration()
-        config.hidesCancelButton = !EditImage.shared.isImageAvailable
-        config.screens = [.library]
-        config.library.mediaType = .photoAndVideo
-        config.showsPhotoFilters = false
-        config.showsVideoTrimmer = false
-        let imagePickerView = YPImagePicker(configuration: config)
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .videos
 
-        imagePickerView.didFinishPicking { [unowned imagePickerView] items, _ in
-            if let photo = items.singlePhoto {
-                EditImage.shared.setInputImage(photo.image)
-                self.originalSize = photo.image.size
-                self.imageView.image = photo.image
-            }
-            if let video = items.singleVideo {
-                let thumbnail = self.thumbnailForVideoAtURL(video.url) ?? UIImage()
-                EditImage.shared.setInputImage(thumbnail)
-                self.originalSize = thumbnail.size
-                self.videoUrl = video.url
-                self.imageView.image = thumbnail
-            }
-            EditImage.shared.resetFilter()
-            self.filterPagerView.reloadData()
-            imagePickerView.dismiss(animated: true, completion: nil)
-        }
-        present(imagePickerView, animated: true, completion: nil)
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        present(picker, animated: true)
     }
 
     private func thumbnailForVideoAtURL(_ url: URL) -> UIImage? {
@@ -331,6 +271,36 @@ class ViewController: UIViewController {
         alertController.addAction(defaultAction)
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        sliderValue.onNext(sender.value)
+    }
+}
+
+extension ViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
+        guard let result = results.first else { return }
+        result.itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.movie.identifier) { [weak self] url, error in
+            if let error = error {
+                return
+            }
+            guard let self = self,
+                  let url = url else { return }
+            let newFileURL = FileManager.default.temporaryDirectory.appendingPathComponent("inputVideo.mp4")
+            if FileManager.default.fileExists(atPath: newFileURL.path) {
+                try? FileManager.default.removeItem(at: newFileURL)
+            }
+            try? FileManager.default.copyItem(at: url, to: newFileURL)
+            let thumbnail = self.thumbnailForVideoAtURL(newFileURL) ?? UIImage()
+            EditImage.shared.setInputImage(thumbnail)
+            self.originalSize = thumbnail.size
+            self.videoUrl = newFileURL
+            DispatchQueue.main.async {
+                self.imageView.image = thumbnail
+            }
         }
     }
 }

@@ -17,51 +17,33 @@
 		D46B465C298A520B008713C6 /* FilterTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46B465B298A520B008713C6 /* FilterTypeCell.xib */; };
 		D46B465E298A5217008713C6 /* FilterTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B465D298A5217008713C6 /* FilterTypeCell.swift */; };
 		D46B4660298B5B29008713C6 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B465F298B5B28008713C6 /* UIImage+Extension.swift */; };
-		D46B4662298B93E4008713C6 /* EditImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B4661298B93E3008713C6 /* EditImage.swift */; };
+		D46B4662298B93E4008713C6 /* EditImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B4661298B93E3008713C6 /* EditImageManager.swift */; };
 		D46B4665298BA181008713C6 /* AdjustTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46B4664298BA181008713C6 /* AdjustTypeCell.xib */; };
 		D46B4667298BA29F008713C6 /* AdjustTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B4666298BA29F008713C6 /* AdjustTypeCell.swift */; };
+		D4A4BC0E2A32CBA700FC89AF /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A4BC0D2A32CBA700FC89AF /* Constant.swift */; };
+		D4A4BC102A32E34800FC89AF /* CIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A4BC0F2A32E34800FC89AF /* CIImage+Ext.swift */; };
 		D4B36B3F29A8583A00696E49 /* FSPagerViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B36B3E29A8583A00696E49 /* FSPagerViewDelegateProxy.swift */; };
 		D4B36B4129A8B74300696E49 /* RxFSPagerViewDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B36B4029A8B74300696E49 /* RxFSPagerViewDataSourceType.swift */; };
 		D4B36B4329A8BB2E00696E49 /* FSPagerViewDataSourceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B36B4229A8BB2D00696E49 /* FSPagerViewDataSourceProxy.swift */; };
 		D4B36B4529AC4D9500696E49 /* RxFSPagerViewReactiveArrayDataSourceSequenceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B36B4429AC4D9500696E49 /* RxFSPagerViewReactiveArrayDataSourceSequenceWrapper.swift */; };
 		D4B36B4729AC4DD000696E49 /* FSPagerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B36B4629AC4DD000696E49 /* FSPagerView+Rx.swift */; };
 		D4B36B4929ADFE7100696E49 /* FSPagerView+Etx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B36B4829ADFE7100696E49 /* FSPagerView+Etx.swift */; };
-		D4B6D2B12994E7EA00413FEC /* CustomFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D2B02994E7EA00413FEC /* CustomFilter.m */; };
-		D4B6D2B32995EF0000413FEC /* CustomColorMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D2B22995EF0000413FEC /* CustomColorMatrix.m */; };
 		D4D26162298FC411001DE822 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D26161298FC411001DE822 /* ProgressHUD.swift */; };
 		D4D261642991E6AC001DE822 /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D261632991E6AC001DE822 /* Float+Extension.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXBuildRule section */
-		D4B6D2AA2993A9E800413FEC /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			filePatterns = "*.ci.metal";
-			fileType = pattern.proxy;
-			inputFiles = (
+/* Begin PBXCopyFilesBuildPhase section */
+		D4A4BC092A32C52200FC89AF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
 			);
-			isEditable = 1;
-			outputFiles = (
-				"$(DERIVED_FILE_DIR)/${INPUT_FILE_BASE}.air",
-			);
-			runOncePerArchitecture = 0;
-			script = "xcrun metal -c -fcikernel \"${INPUT_FILE_PATH}\" \\\n  -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4B6D2AB2993AA3200413FEC /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			filePatterns = "*.ci.air";
-			fileType = pattern.proxy;
-			inputFiles = (
-			);
-			isEditable = 1;
-			outputFiles = (
-				"$(METAL_LIBRARY_OUTPUT_DIR)/$(INPUT_FILE_BASE).metallib",
-			);
-			runOncePerArchitecture = 0;
-			script = "xcrun metallib -cikernel \"${INPUT_FILE_PATH}\" -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-		};
-/* End PBXBuildRule section */
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2EF5F111343F215A8F52FB8B /* Pods_EditVideoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EditVideoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +54,6 @@
 		A6CA9F2DE92ED9E6E6267378 /* Pods-EditVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EditVideo.release.xcconfig"; path = "Target Support Files/Pods-EditVideo/Pods-EditVideo.release.xcconfig"; sourceTree = "<group>"; };
 		A88CFD96832E1AC3884A5A00 /* Pods-EditVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EditVideo.debug.xcconfig"; path = "Target Support Files/Pods-EditVideo/Pods-EditVideo.debug.xcconfig"; sourceTree = "<group>"; };
 		BDD8F02B0E0D73B7D14B8B9C /* Pods-EditVideo-EditVideoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EditVideo-EditVideoUITests.debug.xcconfig"; path = "Target Support Files/Pods-EditVideo-EditVideoUITests/Pods-EditVideo-EditVideoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D45B1BC5299B7E73005A745F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D46B461E29890842008713C6 /* EditVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EditVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46B462129890842008713C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D46B462329890842008713C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,20 +65,19 @@
 		D46B465B298A520B008713C6 /* FilterTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTypeCell.xib; sourceTree = "<group>"; };
 		D46B465D298A5217008713C6 /* FilterTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeCell.swift; sourceTree = "<group>"; };
 		D46B465F298B5B28008713C6 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		D46B4661298B93E3008713C6 /* EditImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImage.swift; sourceTree = "<group>"; };
+		D46B4661298B93E3008713C6 /* EditImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageManager.swift; sourceTree = "<group>"; };
 		D46B4664298BA181008713C6 /* AdjustTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdjustTypeCell.xib; sourceTree = "<group>"; };
 		D46B4666298BA29F008713C6 /* AdjustTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustTypeCell.swift; sourceTree = "<group>"; };
+		D4A4BBFB2A32C52100FC89AF /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		D4A4BBFD2A32C52200FC89AF /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		D4A4BC0D2A32CBA700FC89AF /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		D4A4BC0F2A32E34800FC89AF /* CIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Ext.swift"; sourceTree = "<group>"; };
 		D4B36B3E29A8583A00696E49 /* FSPagerViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPagerViewDelegateProxy.swift; sourceTree = "<group>"; };
 		D4B36B4029A8B74300696E49 /* RxFSPagerViewDataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxFSPagerViewDataSourceType.swift; sourceTree = "<group>"; };
 		D4B36B4229A8BB2D00696E49 /* FSPagerViewDataSourceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPagerViewDataSourceProxy.swift; sourceTree = "<group>"; };
 		D4B36B4429AC4D9500696E49 /* RxFSPagerViewReactiveArrayDataSourceSequenceWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxFSPagerViewReactiveArrayDataSourceSequenceWrapper.swift; sourceTree = "<group>"; };
 		D4B36B4629AC4DD000696E49 /* FSPagerView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Rx.swift"; sourceTree = "<group>"; };
 		D4B36B4829ADFE7100696E49 /* FSPagerView+Etx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Etx.swift"; sourceTree = "<group>"; };
-		D4B36B4A29AEF81F00696E49 /* TimeBasedOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBasedOperators.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		D4B6D2AF2994E7E900413FEC /* CustomFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomFilter.h; sourceTree = "<group>"; };
-		D4B6D2B02994E7EA00413FEC /* CustomFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFilter.m; sourceTree = "<group>"; };
-		D4B6D2B22995EF0000413FEC /* CustomColorMatrix.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomColorMatrix.m; sourceTree = "<group>"; };
-		D4B6D2B42995F11B00413FEC /* CustomColorMatrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomColorMatrix.h; sourceTree = "<group>"; };
 		D4D26161298FC411001DE822 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		D4D261632991E6AC001DE822 /* Float+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
 		F59D30B159A91FABC3385368 /* Pods_EditVideo_EditVideoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EditVideo_EditVideoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +114,8 @@
 				8AC3834556C336B262A2DE0C /* Pods_EditVideo.framework */,
 				F59D30B159A91FABC3385368 /* Pods_EditVideo_EditVideoUITests.framework */,
 				2EF5F111343F215A8F52FB8B /* Pods_EditVideoTests.framework */,
+				D4A4BBFB2A32C52100FC89AF /* PhotosUI.framework */,
+				D4A4BBFD2A32C52200FC89AF /* Photos.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,8 +123,6 @@
 		D46B461529890842008713C6 = {
 			isa = PBXGroup;
 			children = (
-				D4B36B4A29AEF81F00696E49 /* TimeBasedOperators.playground */,
-				D45B1BC5299B7E73005A745F /* MyPlayground.playground */,
 				D46B462029890842008713C6 /* EditVideo */,
 				D46B461F29890842008713C6 /* Products */,
 				365978762F64615DEED4355D /* Pods */,
@@ -161,8 +141,8 @@
 		D46B462029890842008713C6 /* EditVideo */ = {
 			isa = PBXGroup;
 			children = (
+				D4A4BC112A380E8100FC89AF /* Helper */,
 				D4B36B3D29A8582700696E49 /* Extension */,
-				D4B6D2AC2993AAC200413FEC /* Filters */,
 				D46B4663298BA13E008713C6 /* AdjustTypeCell */,
 				D46B465A298A51F2008713C6 /* FilterTypeCell */,
 				D46B462129890842008713C6 /* AppDelegate.swift */,
@@ -172,10 +152,6 @@
 				D46B462A29890845008713C6 /* Assets.xcassets */,
 				D46B462C29890845008713C6 /* LaunchScreen.storyboard */,
 				D46B462F29890845008713C6 /* Info.plist */,
-				D46B465F298B5B28008713C6 /* UIImage+Extension.swift */,
-				D46B4661298B93E3008713C6 /* EditImage.swift */,
-				D4D26161298FC411001DE822 /* ProgressHUD.swift */,
-				D4D261632991E6AC001DE822 /* Float+Extension.swift */,
 			);
 			path = EditVideo;
 			sourceTree = "<group>";
@@ -198,6 +174,16 @@
 			path = AdjustTypeCell;
 			sourceTree = "<group>";
 		};
+		D4A4BC112A380E8100FC89AF /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D4D26161298FC411001DE822 /* ProgressHUD.swift */,
+				D4A4BC0D2A32CBA700FC89AF /* Constant.swift */,
+				D46B4661298B93E3008713C6 /* EditImageManager.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		D4B36B3D29A8582700696E49 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,19 +193,11 @@
 				D4B36B4429AC4D9500696E49 /* RxFSPagerViewReactiveArrayDataSourceSequenceWrapper.swift */,
 				D4B36B4629AC4DD000696E49 /* FSPagerView+Rx.swift */,
 				D4B36B4829ADFE7100696E49 /* FSPagerView+Etx.swift */,
+				D4A4BC0F2A32E34800FC89AF /* CIImage+Ext.swift */,
+				D46B465F298B5B28008713C6 /* UIImage+Extension.swift */,
+				D4D261632991E6AC001DE822 /* Float+Extension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		D4B6D2AC2993AAC200413FEC /* Filters */ = {
-			isa = PBXGroup;
-			children = (
-				D4B6D2B02994E7EA00413FEC /* CustomFilter.m */,
-				D4B6D2AF2994E7E900413FEC /* CustomFilter.h */,
-				D4B6D2B22995EF0000413FEC /* CustomColorMatrix.m */,
-				D4B6D2B42995F11B00413FEC /* CustomColorMatrix.h */,
-			);
-			path = Filters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,10 +212,9 @@
 				D46B461B29890842008713C6 /* Frameworks */,
 				D46B461C29890842008713C6 /* Resources */,
 				8AA8C982C3E857D145AEA9C1 /* [CP] Embed Pods Frameworks */,
+				D4A4BC092A32C52200FC89AF /* Embed Foundation Extensions */,
 			);
 			buildRules = (
-				D4B6D2AB2993AA3200413FEC /* PBXBuildRule */,
-				D4B6D2AA2993A9E800413FEC /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -253,7 +230,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					D46B461D29890842008713C6 = {
@@ -342,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A4BC102A32E34800FC89AF /* CIImage+Ext.swift in Sources */,
 				D46B462629890842008713C6 /* ViewController.swift in Sources */,
 				D46B462229890842008713C6 /* AppDelegate.swift in Sources */,
 				D4D26162298FC411001DE822 /* ProgressHUD.swift in Sources */,
@@ -349,14 +327,13 @@
 				D4B36B4329A8BB2E00696E49 /* FSPagerViewDataSourceProxy.swift in Sources */,
 				D4B36B4929ADFE7100696E49 /* FSPagerView+Etx.swift in Sources */,
 				D4B36B4529AC4D9500696E49 /* RxFSPagerViewReactiveArrayDataSourceSequenceWrapper.swift in Sources */,
-				D46B4662298B93E4008713C6 /* EditImage.swift in Sources */,
+				D46B4662298B93E4008713C6 /* EditImageManager.swift in Sources */,
 				D4B36B4729AC4DD000696E49 /* FSPagerView+Rx.swift in Sources */,
 				D46B4667298BA29F008713C6 /* AdjustTypeCell.swift in Sources */,
-				D4B6D2B32995EF0000413FEC /* CustomColorMatrix.m in Sources */,
+				D4A4BC0E2A32CBA700FC89AF /* Constant.swift in Sources */,
 				D46B4660298B5B29008713C6 /* UIImage+Extension.swift in Sources */,
 				D46B462429890842008713C6 /* SceneDelegate.swift in Sources */,
 				D4D261642991E6AC001DE822 /* Float+Extension.swift in Sources */,
-				D4B6D2B12994E7EA00413FEC /* CustomFilter.m in Sources */,
 				D46B465E298A5217008713C6 /* FilterTypeCell.swift in Sources */,
 				D4B36B4129A8B74300696E49 /* RxFSPagerViewDataSourceType.swift in Sources */,
 			);
@@ -434,7 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -488,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -510,12 +487,13 @@
 				DEVELOPMENT_TEAM = 7X3D98TXTN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EditVideo/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "please allow us to use Library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -527,7 +505,6 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = EditVideo/Filters/CustomFilter.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -546,12 +523,13 @@
 				DEVELOPMENT_TEAM = 7X3D98TXTN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EditVideo/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "please allow us to use Library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,7 +541,6 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = EditVideo/Filters/CustomFilter.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
